@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="http://hitchjs.com/use/chill.syntaxhighlighter/shCore.css" />
+  <link rel="stylesheet" href="http://hitchjs.com/use/chill.syntaxhighlighter/shThemeDefault.css" />
+  <style data-hitch-interpret>
+
+    @-hitch-requires http://hitchjs.com/use/jdorra.mediatime/1;
+
+	
+    #myVideoNotes > div{ display: none; font-size: 1.5em; color: #acaccf; text-align: center; padding-top: 2em; }
+    #video{ width: 640px; float: left; margin-right: 1em; }
+    #video:-media-time(0,1000) ~ #myVideoNotes > div:nth-child(1){  display: block; }
+
+    #video:-media-time(1000,5000) ~ #myVideoNotes > div:nth-child(2){  display: block; }
+    #video:-media-time(5000,9000) ~ #myVideoNotes > div:nth-child(3){  display: block; }
+    #video:-media-time(9000,12000) ~ #myVideoNotes > div:nth-child(4){ display: block; }
+    #video:-media-time(12000,23000) ~ #myVideoNotes > div:nth-child(5){ display: block; }
+    #video:-media-time(23000,27000) ~ #myVideoNotes > div:nth-child(6){ display: block; }
+    #video:-media-time(27000,:30000) ~ #myVideoNotes > div:nth-child(7){ display: block; }
+	#video:-media-time(30000) ~ #myVideoNotes > div:nth-child(8){ display: block; }
+  </style>
+
+  <script src="http://www.hitchjs.com/dist/hitch-0.6.2.min.js"></script>
+  <meta http-equiv="X-UA-Compatible" value="IE=9">
+</head>
+<body>
+    This is a simple demo of the proposed <a href="http://hitchjs.com/describe/jdorra.mediatime/1">:-media-time</a> filter in CSS, 
+    currently implemented as a hitchjs hitch...  Watch the video (or move progress through) and the CSS-bound commentary will appear at relevant bits...
+    <hr />
+    <video id='video'
+      controls preload='none' 
+      poster="http://media.w3.org/2010/05/sintel/poster.png">
+      <source id='mp4'
+        src="http://media.w3.org/2010/05/sintel/trailer.mp4"
+        type='video/mp4'>
+      <source id='webm'
+        src="http://media.w3.org/2010/05/sintel/trailer.webm"
+        type='video/webm'>
+      <source id='ogv'
+        src="http://media.w3.org/2010/05/sintel/trailer.ogv"
+        type='video/ogg'>
+      <p>Your user agent does not support the HTML5 Video element.</p>
+    </video>
+    <div id="myVideoNotes">
+      <div>Ok everybody - ready for this?<br /><img style="padding: 2em;" src="http://hitchjs.com/images/hitch-sans.png"></image></div>
+      <div>Presenting the <div style="font-weight: bold; color: green;">:-media-time() pseudo-class...</div><div style="font-size: 0.8em; color: #070809;">A pseudo-class for syncing the application of rules with the timeline of media like audio and video (and maybe in the future animation)...</div></div>
+      <div>Don't you think a hat or a hood would have been helpful? <br /> Check out the video overlay...
+      <div style="color: white;position: absolute;font-weight: bold;margin-left: 300px;">She Looks COLD!</div></div>
+      <div>Awesome!</div>
+      <div style="font-size: 1em;">This is an <a href="http://hitchjs.com/describe/jdorra.mediatime/1">initial hitch</a> (like a shim) for an idea proposed <br /> originally by Jullien Dora and later improved on <a href="http://lists.w3.org/Archives/Public/www-style/2012Aug/0129.html">www-style</a>.<hr />It has already been added for consideration <div><a href="http://wiki.csswg.org/spec/selectors">CSS Selectors Level 5 Time Pseudo Classes</a><hr /></div>.
+      <div style="font-size: 1.1; color: blue;">Pause, play, mess with the timeline a bit - it's fun!</div>
+      </div>
+      <div>OMG: Watch this!!
+       	<div class="scary">This bird thing scares me.</div>
+      </div>
+      <div>The pseudo class allows you to make CSS rules evaluate their truthfulness based
+      on the .currentTime of a media element.
+      <div>This means you can use the full power of HTML and CSS to add meaning and interactivity.</div>
+      </div>
+      <div style="text-align: left;"><div>Ok...  You get the idea, thanks for watching :)</div>
+        <hr /><div style="margin-top: 1em;"> For more information on the movie check out <a href="http://www.sintel.org">sintel.org</a>.</div>
+        <div>For more about extending CSS like this check out <a href="http://www.hitchjs.com">hitchjs.com</a></div>
+        <div>For more about extending CSS like this check out <a href="http://www.hitchjs.com">hitchjs.com</a></div>
+        <div style="padding-top: 1em;">Julien will be expanding this in a blog about meta fragments... watch for it!</div>
+      </div>
+    </div>
+    <hr style="clear: both" />
+    The code looks like this:
+    <script data-hitch-widget="package:chill.syntaxhighlighter/1#html" type="text/syntaxhighlighter">
+
+      <style data-hitch-interpret>
+
+      @-hitch-requires http://hitchjs.com/use/jdorra.mediatime/1;
+
+      #myVideoNotes > div{ display: none; font-size: 1.5em; color: #acaccf; text-align: center; }
+      #video{ width: 640px; float: left; margin-right: 1em; }
+      #video:-media-time(0,1000) ~ #myVideoNotes > div:nth-child(1){  display: block; }
+      #video:-media-time(1000,5000) ~ #myVideoNotes > div:nth-child(2){  display: block; }
+      #video:-media-time(5000,9000) ~ #myVideoNotes > div:nth-child(3){  display: block; }
+      #video:-media-time(9000,12000) ~ #myVideoNotes > div:nth-child(4){ display: block; }
+      #video:-media-time(12000,23000) ~ #myVideoNotes > div:nth-child(5){ display: block; }
+      #video:-media-time(23000,27000) ~ #myVideoNotes > div:nth-child(6){ display: block; }
+      #video:-media-time(27000,:30000) ~ #myVideoNotes > div:nth-child(7){ display: block; }
+      #video:-media-time(30000,:-media-end) ~ #myVideoNotes > div:nth-child(8){ display: block; }
+
+      </style>
+      
+      <script src="http://www.hitchjs.com/dist/hitch-0.6.2.min.js"></script>
+    </script>
+    <hr />
+    <strong>Let us know what you think...</strong><br />
+    <div data-hitch-widget="http://www.hitchjs.com/use/bkardell.social/1#fb-comments"></div>
+</body>
+</html>
+
